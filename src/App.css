@@ -17,7 +17,7 @@ a:visited {
 .character-list {
   position: absolute;
   margin-top: 150px;
-  z-index: 999;
+  z-index: 5;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -34,6 +34,7 @@ a:visited {
 .character-image {
   width: 100%;
   height: auto;
+  border-radius: 20px;
 }
 
 .container {
@@ -42,10 +43,12 @@ a:visited {
   left: 0;
   right: 0;
   background: #000000;
-  z-index: 1000;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 75px;
+  padding-top: 9px;
 }
 
 .navbar-items {
@@ -57,13 +60,13 @@ a:visited {
 .navbar {
   font-family: "Get Schwifty";
   font-size: 45px;
-  color: #66ba4f;
+  color: #d5e03f;
   padding-left: 20px;
 }
 
 #portal {
   position: fixed;
-  z-index: -999;
+  z-index: -1;
   background-color: #66ba4f;
   box-shadow: 0px 0px 40px 10px #448c3f;
   top: 150px;
@@ -109,10 +112,83 @@ a:visited {
   font-family: "Get Schwifty";
   font-size: 45px;
   font-weight: bold;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.modal-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 15;
+}
+
+.modal {
+  position: fixed;
+  width: 50vw;
+  height: 50vh;
+  transition: all 0.3s ease;
+  top: 25%;
+  left: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  background-color: black;
+  color: yellow;
+  border: 2px solid gray;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: pop-in 0.5s ease-out forwards;
+}
+
+.modal::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  z-index: 4;
+}
+
+.modal-h1 {
+  font-family: "Get Schwifty";
+}
+
+.modal-image {
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
 }
 
 @font-face {
   font-family: "Get Schwifty";
   src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3089507/get-schwifty.woff")
     format("woff");
+}
+
+@keyframes pop-in {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0px 0px 10px 10px #66ba4f, 0 0 30px 15px #66ba4f;
+  }
+  50% {
+    box-shadow: 0px 0px 30px 20px #66ba4f, 0 0 40px 20px #66ba4f;
+  }
+  100% {
+    box-shadow: 0px 0px 10px 10px #66ba4f, 0 0 30px 15px #66ba4f;
+  }
 }

@@ -10,7 +10,6 @@ export default function Navbar() {
           <Link to="/characters">All Characters</Link>
         </div>
       </nav>
-      <div id="portal">Welcome to Rick And Morty API</div>
     </>
   );
 }
